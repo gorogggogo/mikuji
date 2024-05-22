@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fortune Telling</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #fortuneDisplay {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    #drawButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div id="fortuneDisplay">ここに運勢が表示されます</div>
+<button id="drawButton">おみくじを引く</button>
+<script>
+    const fortuneDisplay = document.getElementById('fortuneDisplay');
+    const drawButton = document.getElementById('drawButton');
+
+    const fortunes = [
+        "大吉",
+        "中吉",
+        "小吉",
+        "吉",
+        "末吉",
+        "凶",
+        "大凶"
+    ];
+
+    drawButton.addEventListener('click', drawFortune);
+
+    function drawFortune() {
+        const randomIndex = Math.floor(Math.random() * fortunes.length);
+        const fortune = fortunes[randomIndex];
+        fortuneDisplay.textContent = `あなたの運勢は「${fortune}」です！`;
+    }
+</script>
+</body>
+</html>
